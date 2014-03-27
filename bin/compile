@@ -3,6 +3,8 @@
 $LOAD_PATH.unshift(File.expand_path("../../lib", __FILE__))
 require "java_apps"
 
+$stdout.sync = true
+
 app_path = ARGV.first
 
 find_java_build_file(app_path) do |build_file|
