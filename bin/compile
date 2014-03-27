@@ -9,9 +9,15 @@ app_path = ARGV.first
 
 find_java_build_file(app_path) do |build_file|
   puts <<-TEXT
-The Cloud Foundry Java Buildpack expects compiled artifacts, but a #{build_file} file was found in the app upload directory.
-When pushing your app, specify the path to the artifact by using 'cf push -p /path/to/artifact' or adding
+
+Could not find a buildpack.
+
+It looks like you are pushing a Java application: a #{build_file} file
+was found in the application directory. The Cloud Foundry Java buildpack
+expects compiled artifacts. When pushing your app, specify the path to the
+artifact by using 'cf push -p /path/to/artifact' or adding
 'path: /path/to/artifact' to your manifest file.
+
 TEXT
 end
 
